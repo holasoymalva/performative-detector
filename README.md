@@ -1,4 +1,4 @@
-# 🍵 Matcha Detector - Green/Red Flag
+# 🍵 Performative Detector - Green/Red Flag
 
 Proyecto de detección de matcha usando webcam con TensorFlow.js que muestra flags según la detección.
 

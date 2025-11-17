@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+}
+
+h1 {
+    color: white;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.video-container {
+    position: relative;
+    display: inline-block;
+    background: #000;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+#webcam {
+    display: block;
+    width: 640px;
+    max-width: 100%;
+    height: auto;
+    transform: scaleX(-1);
+}
+
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleX(-1);
+}
+
+#status {
+    margin-top: 20px;
+    color: white;
+    font-size: 1.2em;
+    padding: 10px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.flag-container {
+    margin-top: 30px;
+    transition: all 0.5s ease;
+}
+
+.flag-container.hidden {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+.flag {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: wave 2s ease-in-out infinite;
+}
+
+.flag.green {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+.flag.red {
+    background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+}
+
+#flag-text {
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.youtube-container {
+    margin-top: 30px;
+    transition: all 0.5s ease;
+}
+
+.youtube-container.hidden {
+    display: none;
+}
+
+#player {
+    width: 640px;
+    max-width: 100%;
+    height: 360px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    
+    #webcam {
+        width: 100%;
+    }
+    
+    .flag {
+        width: 150px;
+        height: 150px;
+        font-size: 70px;
+    }
+    
+    #flag-text {
+        font-size: 1.5em;
+    }
+}

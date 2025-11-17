@@ -54,6 +54,9 @@ function showFlag(isGreen) {
         flagText.textContent = 'Performative';
         flagText.style.color = '#38ef7d';
         
+        // Mostrar álbumes cuando es green flag
+        flagContainer.classList.add('show-albums');
+        
         // Abrir video en nueva pestaña solo cuando detecta matcha (green flag) y no se ha abierto antes
         if (!videoPlayed) {
             window.open(youtubeUrl, '_blank');
@@ -64,6 +67,9 @@ function showFlag(isGreen) {
         flag.textContent = '🚩';
         flagText.textContent = 'Red Flag';
         flagText.style.color = '#f45c43';
+        
+        // Ocultar álbumes cuando es red flag
+        flagContainer.classList.remove('show-albums');
     }
 }
 
@@ -86,16 +92,6 @@ async function detectObjects() {
             prediction.class === 'bottle' || 
             prediction.class === 'wine glass') {
             matchaDetected = true;
-            
-            // Dibujar rectángulo verde alrededor del objeto
-            // ctx.strokeStyle = '#38ef7d';
-            // ctx.lineWidth = 3;
-            // ctx.strokeRect(x, y, width, height);
-            
-            // Etiqueta
-            // ctx.fillStyle = '#38ef7d';
-            // ctx.font = '18px Arial';
-            // ctx.fillText('Matcha detectado! 🍵', x, y > 20 ? y - 5 : y + 20);
         }
     });
     

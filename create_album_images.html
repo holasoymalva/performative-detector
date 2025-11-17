@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        canvas { display: none; }
+    </style>
+</head>
+<body>
+    <canvas id="canvas1" width="300" height="300"></canvas>
+    <canvas id="canvas2" width="300" height="300"></canvas>
+    <script>
+        // Album 1 - The Marias style
+        const canvas1 = document.getElementById('canvas1');
+        const ctx1 = canvas1.getContext('2d');
+        const gradient1 = ctx1.createLinearGradient(0, 0, 0, 300);
+        gradient1.addColorStop(0, '#2d5a4a');
+        gradient1.addColorStop(1, '#1a3a2e');
+        ctx1.fillStyle = gradient1;
+        ctx1.fillRect(0, 0, 300, 300);
+        ctx1.fillStyle = '#f5e6d3';
+        ctx1.font = 'italic 40px Georgia';
+        ctx1.textAlign = 'center';
+        ctx1.fillText('The Marias', 150, 100);
+        ctx1.font = '20px Arial';
+        ctx1.fillText('SUPERCLEAN VOL. II', 150, 270);
+        
+        // Album 2 - Clairo style
+        const canvas2 = document.getElementById('canvas2');
+        const ctx2 = canvas2.getContext('2d');
+        const gradient2 = ctx2.createRadialGradient(150, 150, 50, 150, 150, 200);
+        gradient2.addColorStop(0, '#8b7355');
+        gradient2.addColorStop(1, '#5a4a3a');
+        ctx2.fillStyle = gradient2;
+        ctx2.fillRect(0, 0, 300, 300);
+        ctx2.fillStyle = '#d4c5b0';
+        ctx2.font = 'italic 35px Georgia';
+        ctx2.textAlign = 'center';
+        ctx2.fillText('Clairo', 150, 50);
+        ctx2.font = 'italic 25px Georgia';
+        ctx2.fillText('Charm', 150, 85);
+        
+        // Download
+        setTimeout(() => {
+            const link1 = document.createElement('a');
+            link1.download = 'album1.jpg';
+            link1.href = canvas1.toDataURL('image/jpeg');
+            link1.click();
+            
+            const link2 = document.createElement('a');
+            link2.download = 'album2.jpg';
+            link2.href = canvas2.toDataURL('image/jpeg');
+            link2.click();
+        }, 100);
+    </script>
+</body>
+</html>
